@@ -5,18 +5,10 @@ function getComputerChoice () {
   return "scissors"; 
 };
 
-function getHumanChoice () {
 
-     const input = prompt("Rock, Paper, Scissors?");
-    if (!input) return "error"; // إذا ضغط المستخدم cancel
-    const choice = input.toLowerCase();
-    if (choice === "rock" || choice === "paper" || choice === "scissors") return choice;
-    return "error";
-  
-};
 
 let humanScore = 0;
-
+let tan = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
@@ -31,19 +23,57 @@ function playRound(humanChoice, computerChoice) {
   (computerChoice === "scissors" && humanChoice === "paper"  )||
   (computerChoice === "paper" && humanChoice === "rock"  ))
 computerScore++;
+
+
+   else if ((computerChoice === "rock" && humanChoice === "rock"  )||
+  (computerChoice === "paper" && humanChoice === "paper"  )||
+  (computerChoice === "scissors" && humanChoice === "scissors"  ))
+tan++;
 }
 
-for(let i =0; i <5;i++){
-const humanSelection = getHumanChoice();
-if (humanSelection  ==="error"){
-  alert("no good")
-i--;}
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
-alert(`You chose: ${humanSelection}\nComputer chose: ${computerSelection}`);
+const Rbutton = document.querySelector("#Rock");
+Rbutton.addEventListener("click",()=>{
+
+const humanChoice =  "rock";
+const computerChoice  = getComputerChoice () ;
+playRound  (humanChoice,computerChoice );
+
+    alert(`You chose: ${humanChoice}\nComputer chose: ${computerChoice}`);
+
+alert(`ة النهائية:\nHuman: ${humanScore}\nComputer:${computerScore}\n ten:${tan}`);
 
 
-}
+  
 
-alert(`النتيجة النهائية:\nHuman: ${humanScore}\nComputer: ${computerScore}`);
+});
+const sbutton = document.querySelector("#scissors");
+sbutton.addEventListener("click",()=>{
+
+const humanChoice =  "scissors";
+const computerChoice  = getComputerChoice () ;
+playRound  (humanChoice,computerChoice );
+
+    alert(`You chose: ${humanChoice}\nComputer chose: ${computerChoice}`);
+
+alert(`ة النهائية:\nHuman: ${humanScore}\nComputer:${computerScore}\n ten:${tan}`);
+
+
+  
+
+});
+const pbutton = document.querySelector("#paper");
+pbutton.addEventListener("click",()=>{
+
+const humanChoice =  "paper";
+const computerChoice  = getComputerChoice () ;
+playRound  (humanChoice,computerChoice );
+
+    alert(`You chose: ${humanChoice}\nComputer chose: ${computerChoice}`);
+
+alert(`ة النهائية:\nHuman: ${humanScore}\nComputer:${computerScore}\n ten:${tan}`);
+
+
+  
+
+});
 
